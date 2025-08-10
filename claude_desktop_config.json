@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "puch-health-buddy-mcp": {
+      "command": "python",
+      "args": ["-m", "src.puch_health_buddy.mcp.simple_server"],
+      "cwd": "c:\\Users\\Admin\\Desktop\\PuchAi Hackathon"
+    }
+  }
+}
