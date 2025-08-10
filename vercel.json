@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/puch_health_buddy/mcp/web_server.py",
+      "src": "main.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/src/puch_health_buddy/mcp/web_server.py"
+      "dest": "/main.py"
     }
   ]
 }
