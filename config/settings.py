@@ -19,6 +19,12 @@ class Config:
     GOOGLE_TRANSLATE_API_KEY: Optional[str] = os.environ.get('GOOGLE_TRANSLATE_API_KEY')
     GOOGLE_MAPS_API_KEY: Optional[str] = os.environ.get('GOOGLE_MAPS_API_KEY')
 
+    # MCP Server Configuration
+    MCP_SERVER_ID: str = "puch-health-buddy-mcp"
+    MCP_SERVER_NAME: str = "Puch AI Health Buddy MCP Server"
+    MCP_SERVER_VERSION: str = "1.0.0"
+    MCP_SERVER_PORT: int = int(os.environ.get('MCP_PORT', 8000))
+
     # Application settings
     PORT: int = int(os.environ.get('PORT', 5000))
     DEBUG: bool = os.environ.get('DEBUG', 'False').lower() == 'true'

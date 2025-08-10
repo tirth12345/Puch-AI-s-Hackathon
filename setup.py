@@ -16,7 +16,7 @@ setup(
     version="1.0.0",
     author="Your Name",
     author_email="your.email@example.com",
-    description="AI-powered WhatsApp health assistant and fact-checker",
+    description="AI-powered WhatsApp health assistant, fact-checker, and MCP server",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/yourusername/puch-health-buddy",
@@ -48,10 +48,16 @@ setup(
             "pytest-cov>=3.0",
             "requests-mock>=1.9",
         ],
+        "mcp": [
+            "mcp>=0.9.0",
+            "asyncio-mqtt>=0.11.0",
+            "pydantic>=2.5.0",
+        ],
     },
     entry_points={
         "console_scripts": [
             "puch-health-buddy=main:main",
+            "puch-mcp-server=src.puch_health_buddy.mcp.server:main",
         ],
     },
     include_package_data=True,

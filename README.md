@@ -33,18 +33,29 @@
 - **Data Protection**: User interactions logged securely
 - **Compliance Ready**: Built with healthcare data privacy in mind
 
+### 🤖 **MCP (Model Context Protocol) Integration**
+- **Server ID**: `puch-health-buddy-mcp`
+- **Standardized AI Interface**: Compatible with MCP-enabled AI assistants
+- **Tool Integration**: Exposes health services as MCP tools
+- **Multi-Modal Support**: Text and prompt-based interactions
+- **Async Operations**: High-performance asynchronous processing
+
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.9 or higher
 - WhatsApp Business API access
 - Facebook Developer Account
+- Optional: MCP-compatible AI assistant for tool integration
 
 ### 1. Clone & Setup
 ```bash
 git clone https://github.com/tirth12345/Puch-AI-s-Hackathon.git
 cd puch-health-buddy
 pip install -r requirements.txt
+
+# For MCP integration (optional)
+pip install -e ".[mcp]"
 ```
 
 ### 2. Environment Configuration
@@ -56,9 +67,17 @@ WHATSAPP_PHONE_NUMBER_ID=your_phone_number_id
 WHATSAPP_VERIFY_TOKEN=your_verify_token
 WEBHOOK_SECRET=your_webhook_secret
 
+# MCP (Model Context Protocol) dependencies
+mcp==0.9.0
+asyncio-mqtt==0.11.0
+pydantic==2.5.0
+
 # Google APIs (Optional)
 GOOGLE_TRANSLATE_API_KEY=your_translate_api_key
 GOOGLE_MAPS_API_KEY=your_maps_api_key
+
+# MCP Server (Optional)
+MCP_PORT=8000
 
 # Application Settings
 PORT=5000
@@ -94,6 +113,12 @@ PuchAi Hackathon/
 │   │   ├── app.py                      # Flask application factory
 │   │   └── bot.py                      # WhatsApp bot intelligence
 │   ├── 
+│   ├── 🤖 mcp/                         # MCP (Model Context Protocol) integration
+│   │   ├── server.py                   # MCP server implementation
+│   │   ├── config.py                   # MCP configuration
+│   │   ├── client.py                   # MCP test client
+│   │   └── utils.py                    # MCP utilities
+│   ├── 
 │   ├── 🔧 services/                    # Business logic services
 │   │   ├── health_service.py           # Health consultation engine
 │   │   ├── fact_check_service.py       # Misinformation detection
@@ -112,7 +137,9 @@ PuchAi Hackathon/
 │   └── test_app.py                     # Comprehensive tests
 ├── 
 ├── 📊 scripts/                         # Utility scripts
-│   └── monitor.py                      # Application monitoring
+│   ├── monitor.py                      # Application monitoring
+│   ├── start_mcp_server.py             # MCP server startup
+│   └── show_mcp_id.py                  # Display MCP server info
 ├── 
 ├── 🚀 deployment/                      # Deployment configurations
 │   ├── Dockerfile                      # Docker containerization
@@ -122,7 +149,25 @@ PuchAi Hackathon/
 │   └── Procfile                        # Heroku configuration
 └── 
 └── 📚 docs/                            # Documentation
-    └── RESTRUCTURING_GUIDE.md         # Architecture guide
+    ├── RESTRUCTURING_GUIDE.md         # Architecture guide
+    └── MCP_INTEGRATION.md             # MCP integration guide
+```
+
+### 🤖 MCP Integration
+
+The project includes a full **Model Context Protocol (MCP)** server implementation:
+
+- **Server ID**: `puch-health-buddy-mcp`
+- **Available Tools**: Health analysis, fact-checking, location search, translation, emergency guidance
+- **Supported Languages**: 12 Indian languages
+- **Transport**: stdio (standard MCP protocol)
+
+```bash
+# Start MCP server
+python scripts/start_mcp_server.py
+
+# View MCP server information
+python scripts/show_mcp_id.py
 ```
 
 ## 🛠️ Development
@@ -201,12 +246,22 @@ Refer to `deployment/` directory for platform-specific configurations.
 
 ## 🔧 API Endpoints
 
+### REST API (WhatsApp Integration)
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/` | GET | Health check and service info |
 | `/webhook` | GET | WhatsApp webhook verification |
 | `/webhook` | POST | WhatsApp message processing |
 | `/health` | GET | Application health status |
+
+### MCP Tools (AI Assistant Integration)
+| Tool Name | Description | Parameters |
+|-----------|-------------|------------|
+| `analyze_health_symptoms` | Analyze health symptoms and provide guidance | `symptoms`, `language` |
+| `fact_check_health_claim` | Verify health information and detect misinformation | `claim`, `language` |
+| `find_nearby_healthcare` | Find nearby healthcare facilities | `location`, `language` |
+| `translate_health_info` | Translate health information between languages | `text`, `target_language` |
+| `get_health_emergency_guidance` | Emergency health assessment and guidance | `symptoms`, `language` |
 
 ## 💬 Usage Examples
 
@@ -248,6 +303,38 @@ Bot: "🩺 स्वास्थ्य जानकारी - बुखार
 लक्षण: तेज़ बुखार, पसीना, कंपकंपी, सिरदर्द
 
 सामान्य सलाह: आराम करें, तरल पदार्थ पिएं, ज़रूरत हो तो पैरासिटामोल लें..."
+```
+
+### MCP Tool Usage (AI Assistant Integration)
+```json
+{
+  "tool": "analyze_health_symptoms",
+  "arguments": {
+    "symptoms": "I have fever and headache since 2 days",
+    "language": "en"
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "analysis": "Health analysis indicates fever and headache symptoms...",
+  "urgency_level": "medium",
+  "recommendations": ["Rest and stay hydrated", "Monitor symptoms", "Consult healthcare provider if symptoms worsen"],
+  "disclaimer": "This is not medical advice. Consult healthcare professionals."
+}
+```
+
+### MCP Fact-Checking
+```json
+{
+  "tool": "fact_check_health_claim",
+  "arguments": {
+    "claim": "Garlic prevents COVID-19",
+    "language": "en"
+  }
+}
 ```
 
 ## 🏥 Supported Health Categories
@@ -333,6 +420,13 @@ The application includes built-in monitoring capabilities:
 - [WhatsApp Business API](https://developers.facebook.com/docs/whatsapp)
 - [Flask Documentation](https://flask.palletsprojects.com/)
 - [Google Cloud Translation API](https://cloud.google.com/translate/docs)
+- [Model Context Protocol (MCP)](https://spec.modelcontextprotocol.io/)
+
+### MCP Integration
+- [MCP Integration Guide](docs/MCP_INTEGRATION.md)
+- Server ID: `puch-health-buddy-mcp`
+- Available Tools: 5 health-focused MCP tools
+- Supported Languages: 12 Indian languages
 
 ### Health Information Sources
 - [World Health Organization (WHO)](https://who.int)
