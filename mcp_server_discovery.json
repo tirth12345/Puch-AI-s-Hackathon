@@ -1,0 +1,26 @@
+{
+  "mcp_server": {
+    "id": "puch-health-buddy-mcp",
+    "name": "Puch AI Health Buddy MCP Server",
+    "version": "1.0.0",
+    "status": "available",
+    "transport": "stdio",
+    "capabilities": [
+      "tools",
+      "prompts",
+      "logging"
+    ],
+    "tools_count": 5,
+    "languages_supported": 12,
+    "discovery_timestamp": 1754815868.7916648,
+    "connection_info": {
+      "command": "python",
+      "args": [
+        "-m",
+        "src.puch_health_buddy.mcp.simple_server"
+      ],
+      "cwd": "C:\\Users\\Admin\\Desktop\\PuchAi Hackathon",
+      "env": {}
+    }
+  }
+}

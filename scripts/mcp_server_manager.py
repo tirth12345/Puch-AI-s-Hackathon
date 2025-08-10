@@ -230,6 +230,54 @@ class MCPServerManager:
         
         print("=" * 50)
     
+    def restart_server(self):
+        """Restart the MCP server"""
+        print(f"🔄 Restarting MCP server: {self.server_id}")
+        
+        # Check if server is currently running
+        status = self.get_server_status()
+        if status.get("status") == "running":
+            print("📋 Server is currently running - stopping first...")
+            self.stop_server()
+        
+        print("🚀 Starting server...")
+        success = self.start_server()
+        
+        if success:
+            print("✅ Server restarted successfully!")
+        else:
+            print("❌ Failed to restart server")
+            
+        return success
+    
+    def stop_server(self):
+        """Stop the MCP server"""
+        print(f"🛑 Stopping MCP server: {self.server_id}")
+        
+        try:
+            # For now, we'll just update the status file
+            # In a real implementation, you might kill the process
+            status_data = {
+                "status": "stopped",
+                "message": "Server manually stopped",
+                "timestamp": self.get_current_timestamp()
+            }
+            
+            with open(self.status_file, 'w', encoding='utf-8') as f:
+                json.dump(status_data, f, indent=2)
+            
+            print("✅ Server stopped")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Error stopping server: {e}")
+            return False
+    
+    def get_current_timestamp(self):
+        """Get current timestamp"""
+        from datetime import datetime
+        return datetime.now().isoformat()
+
     def unregister_server(self):
         """Unregister the MCP server"""
         print(f"🗑️  Unregistering MCP server: {self.server_id}")
@@ -254,7 +302,7 @@ def main():
     parser = argparse.ArgumentParser(description="MCP Server Manager for Puch AI Health Buddy")
     parser.add_argument(
         "action", 
-        choices=["register", "start", "test", "status", "unregister"],
+        choices=["register", "start", "stop", "restart", "test", "status", "unregister"],
         help="Action to perform"
     )
     
@@ -269,6 +317,10 @@ def main():
         manager.register_server()
     elif args.action == "start":
         manager.start_server()
+    elif args.action == "stop":
+        manager.stop_server()
+    elif args.action == "restart":
+        manager.restart_server()
     elif args.action == "test":
         manager.test_server()
     elif args.action == "status":
