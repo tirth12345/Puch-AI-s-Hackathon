@@ -345,16 +345,14 @@ The application includes built-in monitoring capabilities:
 - Misinformation Detection in Social Media
 - Natural Language Processing for Medical Text
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🏆 Hackathon Submission
 
 **Event**: Puch AI Hackathon  
 **Theme**: AI for Social Good  
 **Category**: Healthcare Technology  
-**Submission Date**: August 2025
+**Submission Date**: 10 August 2025
 
 ### Problem Statement
 Healthcare misinformation and limited access to reliable medical information in rural and semi-urban India.
@@ -374,10 +372,10 @@ A WhatsApp-based AI health assistant that provides:
 
 ## 👥 Team
 
-- **Developer**: [Your Name]
-- **Email**: your.email@example.com
-- **GitHub**: [@yourusername](https://github.com/yourusername)
-- **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+- **Developer**: Tirth Chokshi , Dhruvil Malvania
+- **Email**: tirthchokshi20@gmail.com , dhruvilmalvania@gmail.com
+- **GitHub**: https://github.com/tirth12345 , https://github.com/Dhruvilllll
+- **LinkedIn**: https://www.linkedin.com/in/tirth-chokshi-44b355295/ , https://www.linkedin.com/in/dhruvil-malvania/
 
 ## 🙏 Acknowledgments
 
