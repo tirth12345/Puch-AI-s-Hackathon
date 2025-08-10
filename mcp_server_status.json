@@ -1,0 +1,219 @@
+{
+  "server_info": {
+    "server_id": "puch-health-buddy-mcp",
+    "name": "Puch AI Health Buddy MCP Server",
+    "version": "1.0.0",
+    "description": "AI-powered health assistant and fact-checker",
+    "capabilities": {
+      "tools": true,
+      "prompts": true,
+      "resources": false,
+      "logging": true
+    },
+    "supported_languages": [
+      "en",
+      "hi",
+      "gu",
+      "mr",
+      "ta",
+      "te",
+      "kn",
+      "ml",
+      "bn",
+      "pa",
+      "or",
+      "as"
+    ],
+    "tools": [
+      "analyze_health_symptoms",
+      "fact_check_health_claim",
+      "find_nearby_healthcare",
+      "translate_health_info",
+      "get_health_emergency_guidance"
+    ]
+  },
+  "tools": [
+    {
+      "name": "analyze_health_symptoms",
+      "description": "Analyze health symptoms and provide medical guidance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symptoms": {
+            "type": "string",
+            "description": "Description of health symptoms"
+          },
+          "language": {
+            "type": "string",
+            "description": "Preferred language for response",
+            "enum": [
+              "en",
+              "hi",
+              "gu",
+              "mr",
+              "ta",
+              "te",
+              "kn",
+              "ml",
+              "bn",
+              "pa",
+              "or",
+              "as"
+            ],
+            "default": "en"
+          }
+        },
+        "required": [
+          "symptoms"
+        ]
+      }
+    },
+    {
+      "name": "fact_check_health_claim",
+      "description": "Verify health information and detect misinformation",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "claim": {
+            "type": "string",
+            "description": "Health claim or information to verify"
+          },
+          "language": {
+            "type": "string",
+            "description": "Preferred language for response",
+            "enum": [
+              "en",
+              "hi",
+              "gu",
+              "mr",
+              "ta",
+              "te",
+              "kn",
+              "ml",
+              "bn",
+              "pa",
+              "or",
+              "as"
+            ],
+            "default": "en"
+          }
+        },
+        "required": [
+          "claim"
+        ]
+      }
+    },
+    {
+      "name": "find_nearby_healthcare",
+      "description": "Find nearby healthcare facilities",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "description": "City or area name to search for healthcare facilities"
+          },
+          "language": {
+            "type": "string",
+            "description": "Preferred language for response",
+            "enum": [
+              "en",
+              "hi",
+              "gu",
+              "mr",
+              "ta",
+              "te",
+              "kn",
+              "ml",
+              "bn",
+              "pa",
+              "or",
+              "as"
+            ],
+            "default": "en"
+          }
+        },
+        "required": [
+          "location"
+        ]
+      }
+    },
+    {
+      "name": "translate_health_info",
+      "description": "Translate health information between supported languages",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text to translate"
+          },
+          "target_language": {
+            "type": "string",
+            "description": "Target language for translation",
+            "enum": [
+              "en",
+              "hi",
+              "gu",
+              "mr",
+              "ta",
+              "te",
+              "kn",
+              "ml",
+              "bn",
+              "pa",
+              "or",
+              "as"
+            ]
+          },
+          "source_language": {
+            "type": "string",
+            "description": "Source language (auto-detect if not specified)",
+            "default": "auto"
+          }
+        },
+        "required": [
+          "text",
+          "target_language"
+        ]
+      }
+    },
+    {
+      "name": "get_health_emergency_guidance",
+      "description": "Get emergency health guidance and identify urgent situations",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symptoms": {
+            "type": "string",
+            "description": "Emergency symptoms description"
+          },
+          "language": {
+            "type": "string",
+            "description": "Preferred language for response",
+            "enum": [
+              "en",
+              "hi",
+              "gu",
+              "mr",
+              "ta",
+              "te",
+              "kn",
+              "ml",
+              "bn",
+              "pa",
+              "or",
+              "as"
+            ],
+            "default": "en"
+          }
+        },
+        "required": [
+          "symptoms"
+        ]
+      }
+    }
+  ],
+  "status": "running",
+  "timestamp": "2025-08-10T14:06:43.566023"
+}

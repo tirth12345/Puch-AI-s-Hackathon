@@ -10,25 +10,23 @@ import logging
 from typing import Any, Dict, List, Optional
 from datetime import datetime
 
-# Note: MCP imports will be available after installing the mcp package
-# Uncomment these imports after running: pip install mcp
-# from mcp.server import Server
-# from mcp.server.models import InitializationOptions
-# from mcp.server.stdio import stdio_server
-# from mcp.types import (
-#     CallToolRequest,
-#     CallToolResult,
-#     ListToolsRequest,
-#     ListToolsResult,
-#     Tool,
-#     TextContent,
-#     GetPromptRequest,
-#     GetPromptResult,
-#     ListPromptsRequest,
-#     ListPromptsResult,
-#     Prompt,
-#     PromptArgument
-# )
+from mcp.server import Server
+from mcp.server.models import InitializationOptions
+from mcp.server.stdio import stdio_server
+from mcp.types import (
+    CallToolRequest,
+    CallToolResult,
+    ListToolsRequest,
+    ListToolsResult,
+    Tool,
+    TextContent,
+    GetPromptRequest,
+    GetPromptResult,
+    ListPromptsRequest,
+    ListPromptsResult,
+    Prompt,
+    PromptArgument
+)
 
 from ..services.health_service import HealthService
 from ..services.fact_check_service import FactCheckService

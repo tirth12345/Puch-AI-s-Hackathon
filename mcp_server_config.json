@@ -1,11 +1,15 @@
 {
-  "schema_version": "0.1.0",
+  "server_id": "puch-health-buddy-mcp",
   "name": "Puch AI Health Buddy MCP Server",
   "version": "1.0.0",
   "description": "AI-powered health assistant and fact-checker via MCP",
-  "author": "Puch AI Team",
-  "license": "MIT",
-  "homepage": "https://github.com/tirth12345/Puch-AI-s-Hackathon",
+  "command": [
+    "python",
+    "-m",
+    "src.puch_health_buddy.mcp.simple_server"
+  ],
+  "cwd": "C:\\Users\\Admin\\Desktop\\PuchAi Hackathon",
+  "env": {},
   "capabilities": {
     "tools": true,
     "prompts": true,
@@ -32,15 +36,5 @@
     "find_nearby_healthcare",
     "translate_health_info",
     "get_health_emergency_guidance"
-  ],
-  "server": {
-    "command": [
-      "python",
-      "-m",
-      "src.puch_health_buddy.mcp.simple_server"
-    ],
-    "args": [],
-    "env": {}
-  },
-  "server_id": "puch-health-buddy-mcp"
+  ]
 }
