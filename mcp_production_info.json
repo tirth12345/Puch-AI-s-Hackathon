@@ -1,0 +1,21 @@
+{
+  "server_url": "https://puch-ai-s-hackathon.vercel.app",
+  "bearer_token": "mcp_token_puch_ai_production_vercel_2025",
+  "mcp_connect_command": "/mcp connect https://puch-ai-s-hackathon.vercel.app mcp_token_puch_ai_production_vercel_2025",
+  "server_info": {
+    "id": "puch-health-buddy-mcp",
+    "name": "Puch AI Health Buddy MCP Server",
+    "version": "1.0.0",
+    "description": "AI-powered health assistant and fact-checker via MCP"
+  },
+  "endpoints": {
+    "health": "https://puch-ai-s-hackathon.vercel.app/health",
+    "info": "https://puch-ai-s-hackathon.vercel.app/mcp/info",
+    "tools": "https://puch-ai-s-hackathon.vercel.app/mcp/tools",
+    "call": "https://puch-ai-s-hackathon.vercel.app/mcp/call",
+    "connect": "https://puch-ai-s-hackathon.vercel.app/mcp/connect"
+  },
+  "environment": "production",
+  "platform": "vercel",
+  "created_at": "2025-08-10T15:30:00Z"
+}

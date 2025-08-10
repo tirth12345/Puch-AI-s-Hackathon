@@ -1,0 +1,18 @@
+{
+  "server_url": "http://localhost:8000",
+  "bearer_token": "mcp_token_U_tgnWiqGuuUbsrytTYsnoWgUdiI8UaPK9VzYQIHNrE",
+  "mcp_connect_command": "/mcp connect http://localhost:8000 mcp_token_U_tgnWiqGuuUbsrytTYsnoWgUdiI8UaPK9VzYQIHNrE",
+  "server_info": {
+    "id": "puch-health-buddy-mcp",
+    "name": "Puch AI Health Buddy MCP Server",
+    "version": "1.0.0"
+  },
+  "endpoints": {
+    "health": "http://localhost:8000/health",
+    "info": "http://localhost:8000/mcp/info",
+    "tools": "http://localhost:8000/mcp/tools",
+    "call": "http://localhost:8000/mcp/call",
+    "connect": "http://localhost:8000/mcp/connect"
+  },
+  "created_at": "2025-08-10T15:29:41.171468"
+}
